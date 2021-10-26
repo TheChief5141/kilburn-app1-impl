@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="baseline.Application">
+   <children>
+      <Text layoutX="241.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a new To Do List: " />
+      <Text layoutX="14.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To Do List Title:" />
+      <TextField id="addToDoListTitle" layoutX="315.0" layoutY="92.0" prefHeight="26.0" prefWidth="243.0" />
+      <Text layoutX="14.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To Do List Description:" />
+      <Text layoutX="14.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To Do List Due Date:" />
+      <TextField id="addToDoListDescription" layoutX="315.0" layoutY="136.0" prefHeight="26.0" prefWidth="243.0" />
+      <TextField id="addToDoListDueDate" layoutX="315.0" layoutY="188.0" prefHeight="26.0" prefWidth="243.0" />
+      <TextArea id="addItem" layoutX="315.0" layoutY="242.0" prefHeight="48.0" prefWidth="243.0" />
+      <Text layoutX="14.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Items:" />
+      <Button id="loadToDoList" layoutX="250.0" layoutY="327.0" mnemonicParsing="false" text="Load To Do LIst" />
+   </children>
+</AnchorPane>

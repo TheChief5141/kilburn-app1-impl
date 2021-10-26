@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="baseline.Application">
+   <children>
+      <ChoiceBox layoutX="224.0" layoutY="121.0" prefWidth="150.0">
+         <contextMenu>
+            <ContextMenu id="loadToDoList">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </ChoiceBox>
+      <Text layoutX="187.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose which To Do List you want to edit: " />
+      <Text layoutX="180.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What do you want to do with the To Do List?" />
+      <ButtonBar layoutX="14.0" layoutY="286.0" prefHeight="40.0" prefWidth="583.0">
+        <buttons>
+          <Button id="addItem" mnemonicParsing="false" text="Add Item" />
+            <Button id="deleteItem" mnemonicParsing="false" text="Delete Item" />
+            <Button id="editDescription" mnemonicParsing="false" text="Edit Description" />
+            <Button id="displayItem" mnemonicParsing="false" text="Display Items" />
+            <Button id="saveToDoList" mnemonicParsing="false" text="Save To Do List" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>

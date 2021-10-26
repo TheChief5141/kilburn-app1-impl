@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Application{
+    'attributes'
+    ArrayList<toDoList> totalLists
+
+    'methods'
+    -addToDoList();
+    -deleteToDoList();
+    -editToDoList();
+
+}
+class toDoList{
+ 'attributes'
+ String title
+ ArrayList<item> list
+
+
+ 'methods'
+ -addItem()
+ -removeItem();
+ -editDescription();
+ -editDueDate();
+ -markItem();
+ -displayAllItems();
+ -displayCompleteItems();
+ -displayIncompleteItems();
+ -saveToDoList(directory, itemsToSave);
+
+
+
+ -loadToDoList();
+}
+class item{
+    String description;
+    String dueDate - formatted as YYYY-MM-DD
+    Boolean Completed
+
+}
+
+@enduml
