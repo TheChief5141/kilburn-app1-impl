@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="baseline.TodoListApplication">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="26.0" prefWidth="600.0" AnchorPane.topAnchor="2.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="saveButton" mnemonicParsing="false" text="Save To Do List" />
+                  <MenuItem fx:id="loadButton" mnemonicParsing="false" text="Load To Do List" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem fx:id="addItemButton" mnemonicParsing="false" text="Add Item" />
+              <MenuItem fx:id="deleteItemButton" mnemonicParsing="false" text="Delete Item" />
+                  <MenuItem fx:id="editButton" mnemonicParsing="false" text="Edit Item" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="View">
+              <items>
+                <MenuItem fx:id="viewCompleteButton" mnemonicParsing="false" text="View Completed Items" />
+                  <MenuItem fx:id="viewIncompleteButton" mnemonicParsing="false" text="View Incompleted Items" />
+                  <MenuItem fx:id="viewAllButton" mnemonicParsing="false" text="View All Items" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="aboutButton" mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TableView layoutY="28.0" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="itemDescription" prefWidth="260.800048828125" text="Item Description" />
+            <TableColumn fx:id="itemDueDate" prefWidth="257.5999755859375" text="Item Due Date" />
+            <TableColumn prefWidth="80.800048828125" text="Completed" />
+        </columns>
+      </TableView>
+      <HBox fx:id="addItemField" layoutY="228.0" prefHeight="26.0" prefWidth="600.0" spacing="50.0">
+         <children>
+            <TextField fx:id="addItemDescription" promptText="Item Description" />
+            <DatePicker fx:id="itemDueDatePicker" promptText="Item Due Date" />
+            <Button fx:id="addItemIntoTableButton" mnemonicParsing="false" text="Add Item" />
+         </children>
+      </HBox>
+      <HBox fx:id="deleteItemField" layoutY="276.0" prefHeight="26.0" prefWidth="600.0" spacing="225.0">
+         <children>
+            <ComboBox fx:id="itemChooser" prefHeight="26.0" prefWidth="202.0" promptText="Choose an item to delete: " />
+            <Button fx:id="deleteItemForGoodButton" mnemonicParsing="false" text="Delete Item" />
+         </children>
+      </HBox>
+      <HBox fx:id="editItemField" layoutY="332.0" prefHeight="26.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <ComboBox fx:id="itemChooser1" prefHeight="26.0" prefWidth="170.0" promptText="Choose an item to edit: " />
+            <TextField fx:id="addItemDescription1" promptText="Item Description" />
+            <DatePicker fx:id="itemDueDatePicker1" promptText="Item Due Date" />
+            <Button fx:id="editItemForGoodButton" mnemonicParsing="false" text="Edit Item" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
