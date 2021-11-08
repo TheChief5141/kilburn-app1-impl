@@ -1,2 +1,4 @@
-package baseline;public class Controller {
+package baseline;
+
+public class Controller {
 }

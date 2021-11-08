@@ -9,6 +9,8 @@ import javafx.event.*;
 
 import javafx.scene.*;
 import javafx.scene.input.MouseEvent;
+//import javafx.fxml.FXMLLoader;
+
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -90,7 +92,7 @@ Pseudocode:
       Click the return to start button to return to application.fxml
      */
 
-public class Application extends javafx.application.Application implements EventHandler<ActionEvent> {
+public abstract class Application extends javafx.application.Application implements EventHandler<ActionEvent> {
 
     public void printItem(item[] toDoListArray){
         //Print out the items in a To Do List
@@ -101,14 +103,7 @@ public class Application extends javafx.application.Application implements Event
     public void printIncompleteItems(item[] toDoListArray){
         //prints only incomplete items
     }
-    public String getToDoListTitle(item[] toDoListArray){
-        //returns the title of a To Do List
-        return "";
-    }
-    public String getToDoListDescription(item[] toDoListArray){
-        //returns Description of a To Do List
-        return "";
-    }
+
     public String getItemDescription(item[] toDoListArray){
         //returns Item Description at the item[index]
         return "";
@@ -136,10 +131,10 @@ public class Application extends javafx.application.Application implements Event
     public void saveToDoList(item[] toDoListArray){
         //this creates a .txt document that will be able to be saved on the local repository
     }
-    public File loadToDoList(item[] toDoListArray){
+    public void loadToDoList(item[] toDoListArray){
         //returns a .txt file of a ToDoList that is on your local hardware
-        File newFile = new File();
-        return newFile;
+        //File newFile = new File();
+        //return newFile;
     }
 
 
@@ -162,32 +157,11 @@ public class Application extends javafx.application.Application implements Event
     @Override
     public void start(Stage primaryStage) throws Exception {
         //when program starts up, the screen should show the application.fxml
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("APPLICATION_2.fxml"));
+
+/*
 
 
-        addToDoListButton.setOnAction(new EventHandler<ActionEvent>(){
-            @Override
-            public void handle(ActionEvent event) {
-                //run addToDoList method
-            }
-        });
-        deleteToDoListButton.setOnAction(new EventHandler<ActionEvent>(){
-            @Override
-            public void handle(ActionEvent event) {
-                //run deleteToDoList method
-            }
-        });
-        editToDoListButton.setOnAction(new EventHandler<ActionEvent>(){
-            @Override
-            public void handle(ActionEvent event) {
-                //switch to editToDoList.fxml
-            }
-        });
-        addButton.setOnAction(new EventHandler<ActionEvent>(){
-            @Override
-            public void handle(ActionEvent event) {
-                //adds the to do list info to the list of to do lists
-            }
-        });
         addItemButton.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent event) {
@@ -210,7 +184,7 @@ public class Application extends javafx.application.Application implements Event
         displayItems.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent event) {
-                //switch to showItemsList.fxml
+
             }
         });
         saveButton.setOnAction(new EventHandler<ActionEvent>(){

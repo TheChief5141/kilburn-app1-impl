@@ -5,10 +5,7 @@ class Application{
     'attributes'
     ArrayList<toDoList> totalLists
 
-    'methods'
-    -addToDoList();
-    -deleteToDoList();
-    -editToDoList();
+
 
 }
 class toDoList{

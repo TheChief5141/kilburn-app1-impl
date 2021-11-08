@@ -1,32 +1,47 @@
 plugins {
+    id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.10'
-}
-javafx {
-    version = "17"
-    modules = [ 'javafx.controls' ]
+    id 'org.openjfx.javafxplugin' version '0.0.7'
 }
 
-group 'org.example'
+
+
+javafx {
+    modules = [ 'javafx.controls' , 'javafx.fxml' ]
+    version = '11.0.2'
+}
+
+group 'com.example'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
 }
 
+ext {
+    junitVersion = '5.7.1'
+}
+
+sourceCompatibility = '16'
+targetCompatibility = '16'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+application {
+
+    mainClass = 'baseline.TodoListApplication'
+}
+
+
+
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 
 test {
     useJUnitPlatform()
-}
-
-run {
-    standardInput = System.in
-}
-
-application {
-    mainClass = "baseline.Application"
 }
