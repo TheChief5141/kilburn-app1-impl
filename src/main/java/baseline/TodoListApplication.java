@@ -1,6 +1,7 @@
 package baseline;
 
 import javafx.application.Application;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
@@ -18,9 +19,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+import javafx.util.Callback;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -182,20 +185,33 @@ public class TodoListApplication extends Application {
 
     public void loadToDoList(ActionEvent actionEvent) throws IOException {
         //open file explorer and parse a  .txt file to store in the arrayList
-        File file = new File ("c:\<directory>");
-        Desktop desktop = Desktop.getDesktop();
-        desktop.open(file);
+        try {
+            Process builder = Runtime.getRuntime().exec("cmd /c start C:/ProgramData");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void saveToDoList(ActionEvent actionEvent) {
+    public void saveToDoList(ActionEvent actionEvent) throws IOException {
         //save the todolist as a .txt file and open up file explorer
+
+        FileWriter writer = new FileWriter("output.txt");
+        for(item str: ToDoList) {
+            writer.write(str + System.lineSeparator());
+        }
+        writer.close();
     }
 
     public void viewCompletedItems(ActionEvent actionEvent) {
         //print only completed items in the tableview
         for(int i = 0; i <= ToDoList.size(); i++){
             if(ToDoList.get(i).complete){
-
+                itemIndex.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<item, Integer>, ObservableValue<Integer>>() {
+                    public ObservableValue<Integer> call(TableColumn.CellDataFeatures<item, Integer> p) {
+                        return new ReadOnlyObjectWrapper<>(p.getValue().getIndex());
+                    }
+                });
+                theTable.getColumns().add(itemIndex);
             }
         }
 
@@ -203,10 +219,26 @@ public class TodoListApplication extends Application {
 
     public void viewIncompletedItems(ActionEvent actionEvent) {
         //print only incompleted items in the tableview
+        for(int i = 0; i <= ToDoList.size(); i++){
+            if(!(ToDoList.get(i).complete)){
+                itemIndex.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<item, Integer>, ObservableValue<Integer>>() {
+                    public ObservableValue<Integer> call(TableColumn.CellDataFeatures<item, Integer> p) {
+                        return new ReadOnlyObjectWrapper<>(p.getValue().getIndex());
+                    }
+                });
+                theTable.getColumns().add(itemIndex);
+            }
+        }
     }
 
     public void viewAllItems(ActionEvent actionEvent) {
         //print all items in todolist in the tableview
+        itemIndex.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<item, Integer>, ObservableValue<Integer>>() {
+            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<item, Integer> p) {
+                return new ReadOnlyObjectWrapper<>(p.getValue().getIndex());
+            }
+        });
+        theTable.getColumns().add(itemIndex);
 
     }
 
